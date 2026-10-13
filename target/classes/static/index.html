@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusFlow — Student Management</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">C</div><div><b>CampusFlow</b><small>STUDENT PORTAL</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#"><span>▦</span> Overview</a>
+    <a class="nav" href="#students"><span>♙</span> Students</a>
+    <div class="sidebar-bottom"><div class="avatar">HO</div><div><b>Hariom</b><small>Administrator</small></div><span class="dots">•••</span></div>
+  </aside>
+  <main class="main">
+    <header><div><div class="eyebrow">CAMPUS ADMINISTRATION</div><h1>Student overview</h1><p>Manage your students and keep everything organized.</p></div><button class="primary" id="addBtn">＋ Add student</button></header>
+    <section class="stats">
+      <article class="stat"><div class="stat-top"><span>Total students</span><span class="stat-icon purple">♙</span></div><strong id="total">—</strong><small>Students registered</small></article>
+      <article class="stat"><div class="stat-top"><span>Active students</span><span class="stat-icon green">✓</span></div><strong id="active">—</strong><small>Currently active</small></article>
+      <article class="stat"><div class="stat-top"><span>Courses</span><span class="stat-icon orange">▤</span></div><strong id="courses">—</strong><small>Unique courses</small></article>
+    </section>
+    <section class="panel" id="students">
+      <div class="panel-head"><div><h2>All students</h2><p>A complete list of registered students.</p></div><div class="tools"><input id="search" placeholder="⌕  Search name or email…"><button class="secondary" id="refresh">↻ Refresh</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>COURSE / DEPARTMENT</th><th>YEAR</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="studentRows"><tr><td colspan="5" class="empty">Loading students…</td></tr></tbody></table></div>
+      <div class="table-foot"><span id="count">Loading records…</span><span>CampusFlow · Student directory</span></div>
+    </section>
+    <footer>© 2026 CampusFlow <span>Built for better campus management.</span></footer>
+  </main>
+</div>
+<div class="modal-backdrop" id="modal" hidden><section class="modal"><div class="modal-title"><div><h2 id="modalHeading">Add student</h2><p>Fill in the student details below.</p></div><button class="close" id="closeModal">×</button></div>
+<form id="studentForm"><input type="hidden" id="studentId">
+<div class="form-grid">
+<label>Full name *<input id="name" required placeholder="e.g. Aditi Sharma"></label>
+<label>Email address *<input id="email" type="email" required placeholder="student@example.com"></label>
+<label>Phone number<input id="phone" placeholder="+91 98765 43210"></label>
+<label>Course<input id="course" placeholder="e.g. MCA"></label>
+<label>Department<input id="department" placeholder="e.g. Computer Applications"></label>
+<label>Year of study<select id="year"><option value="">Select year</option><option value="1">1st Year</option><option value="2">2nd Year</option><option value="3">3rd Year</option><option value="4">4th Year</option></select></label>
+<label>Status<select id="status"><option>Active</option><option>Inactive</option></select></label>
+</div><div class="form-actions"><button type="button" class="secondary" id="cancelBtn">Cancel</button><button class="primary" type="submit" id="saveBtn">Save student</button></div><p id="formError" class="error"></p></form></section></div>
+<div id="toast" class="toast" role="status"></div><script src="/app.js"></script>
+</body></html>
